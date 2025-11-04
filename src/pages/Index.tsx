@@ -319,9 +319,7 @@ const Index = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold mb-1">Телефон</h3>
-                  <a href="tel:+78001234567" className="text-xl text-accent hover:underline">
-                    +7 (800) 123-45-67
-                  </a>
+                  <a href="tel:+78001234567" className="text-xl text-accent hover:underline">+7 (800) 141-65-80</a>
                   <p className="text-sm text-muted-foreground">Звонок по России бесплатный</p>
                 </div>
               </div>
@@ -332,9 +330,7 @@ const Index = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold mb-1">Email</h3>
-                  <a href="mailto:info@geosnab.ru" className="text-xl text-accent hover:underline">
-                    info@geosnab.ru
-                  </a>
+                  <a href="mailto:info@geosnab.ru" className="text-xl text-accent hover:underline">TD.Povolzhje@yandex.ru</a>
                 </div>
               </div>
 
