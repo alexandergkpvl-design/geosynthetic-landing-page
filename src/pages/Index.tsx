@@ -180,54 +180,52 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Доставка по всей России</h2>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div className="space-y-6">
-              <div className="flex gap-4 items-start">
-                <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Icon name="MapPin" size={24} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">География поставок</h3>
-                  <p className="text-primary-foreground/80">
-                    Доставляем во все регионы РФ: от Калининграда до Владивостока
-                  </p>
-                </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="flex gap-4 items-start">
+              <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                <Icon name="MapPin" size={24} />
               </div>
-
-              <div className="flex gap-4 items-start">
-                <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Icon name="Clock" size={24} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Сроки доставки</h3>
-                  <p className="text-primary-foreground/80">
-                    Отправка в течение 24 часов. Доставка 2-7 дней в зависимости от региона
-                  </p>
-                </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">География поставок</h3>
+                <p className="text-primary-foreground/80">
+                  Доставляем во все регионы РФ: от Калининграда до Владивостока
+                </p>
               </div>
+            </div>
 
-              <div className="flex gap-4 items-start">
-                <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Icon name="Truck" size={24} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Способы доставки</h3>
-                  <p className="text-primary-foreground/80">
-                    Транспортными компаниями, собственным транспортом, самовывоз со склада
-                  </p>
-                </div>
+            <div className="flex gap-4 items-start">
+              <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                <Icon name="Clock" size={24} />
               </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">Сроки доставки</h3>
+                <p className="text-primary-foreground/80">
+                  Отправка в течение 24 часов. Доставка 2-7 дней в зависимости от региона
+                </p>
+              </div>
+            </div>
 
-              <div className="flex gap-4 items-start">
-                <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Icon name="PackageCheck" size={24} />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Гарантии качества</h3>
-                  <p className="text-primary-foreground/80">
-                    Надежная упаковка, страхование груза, проверка перед отправкой
-                  </p>
-                </div>
+            <div className="flex gap-4 items-start">
+              <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                <Icon name="Truck" size={24} />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">Способы доставки</h3>
+                <p className="text-primary-foreground/80">
+                  Транспортными компаниями, собственным транспортом, самовывоз со склада
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-4 items-start">
+              <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                <Icon name="PackageCheck" size={24} />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">Гарантии качества</h3>
+                <p className="text-primary-foreground/80">
+                  Надежная упаковка, страхование груза, проверка перед отправкой
+                </p>
               </div>
             </div>
           </div>
