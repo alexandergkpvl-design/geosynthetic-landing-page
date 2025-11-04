@@ -172,17 +172,9 @@ const Index = () => {
             </div>
 
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button size="lg" className="bg-accent hover:bg-accent/90 text-lg px-8" asChild>
-                <a href="mailto:TD.Povolzhje@yandex.ru">
-                  <Icon name="Mail" size={20} className="mr-2" />
-                  Написать на почту
-                </a>
-              </Button>
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-lg px-8" asChild>Прайс лист по запросу</Button>
               <Button size="lg" variant="outline" className="text-lg px-8" asChild>
-                <a href="https://wa.me/79991416580" target="_blank" rel="noopener noreferrer">
-                  <Icon name="MessageCircle" size={20} className="mr-2" />
-                  Написать в WhatsApp
-                </a>
+                <a href="https://wa.me/79991416580" target="_blank" rel="noopener noreferrer">Запрос цен в WhatsApp</a>
               </Button>
             </div>
           </div>
