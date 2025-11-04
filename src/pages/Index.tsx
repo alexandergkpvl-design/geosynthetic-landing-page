@@ -284,7 +284,7 @@ const Index = () => {
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="text-center border-2">
                 <CardContent className="pt-6">
-                  <div className="text-4xl font-bold text-accent mb-2">8+</div>
+                  <div className="text-4xl font-bold text-accent mb-2">10+</div>
                   <p className="text-muted-foreground">лет на рынке</p>
                 </CardContent>
               </Card>
@@ -340,10 +340,7 @@ const Index = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold mb-1">Офис и склад</h3>
-                  <p className="text-muted-foreground">
-                    г. Москва, Промышленная ул., д. 15<br/>
-                    Пн-Пт: 9:00 - 18:00
-                  </p>
+                  <p className="text-muted-foreground">603032, г. Н.Новгород, ул. Памирская, дом  11А, помещение П2, офис 307</p>
                 </div>
               </div>
             </div>
