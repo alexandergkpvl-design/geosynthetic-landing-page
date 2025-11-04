@@ -171,9 +171,11 @@ const Index = () => {
               </Card>
             </div>
 
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-lg px-8">
-              <Icon name="Download" size={20} className="mr-2" />
-              Скачать прайс-лист
+            <Button size="lg" className="bg-accent hover:bg-accent/90 text-lg px-8" asChild>
+              <a href="https://wa.me/79991416580" target="_blank" rel="noopener noreferrer">
+                <Icon name="Download" size={20} className="mr-2" />
+                Скачать прайс-лист
+              </a>
             </Button>
           </div>
         </div>
