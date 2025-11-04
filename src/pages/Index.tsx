@@ -233,30 +233,6 @@ const Index = () => {
                 </div>
               </div>
             </div>
-
-            <div className="bg-accent/10 backdrop-blur-sm p-8 rounded-lg border-2 border-accent">
-              <h3 className="text-2xl font-bold mb-6">Рассчитать доставку</h3>
-              <form className="space-y-4">
-                <input 
-                  type="text" 
-                  placeholder="Ваш город"
-                  className="w-full px-4 py-3 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
-                />
-                <input 
-                  type="text" 
-                  placeholder="Объем заказа (м²)"
-                  className="w-full px-4 py-3 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
-                />
-                <input 
-                  type="tel" 
-                  placeholder="Телефон"
-                  className="w-full px-4 py-3 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
-                />
-                <Button className="w-full bg-accent hover:bg-accent/90" size="lg">
-                  Рассчитать стоимость
-                </Button>
-              </form>
-            </div>
           </div>
         </div>
       </section>
