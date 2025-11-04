@@ -46,9 +46,6 @@ const Index = () => {
               <Button size="lg" className="bg-accent hover:bg-accent/90 text-lg px-8">
                 Получить консультацию
               </Button>
-              <Button size="lg" variant="outline" className="bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground border-primary-foreground hover:bg-primary-foreground/20 text-lg px-8">
-                Скачать каталог
-              </Button>
             </div>
           </div>
         </div>
