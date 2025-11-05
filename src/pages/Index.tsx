@@ -123,13 +123,60 @@ const Index = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { name: "Геотекстиль", desc: "Нетканые и тканые материалы различной плотности", icon: "Layers" },
-              { name: "Геомембраны", desc: "HDPE, LDPE мембраны для гидроизоляции", icon: "Shield" },
-              { name: "Георешетки", desc: "Для укрепления грунтов и откосов", icon: "Grid3x3" },
-              { name: "Геосетки", desc: "Армирование дорожных покрытий", icon: "Network" },
-              { name: "Дренажные материалы", desc: "Дренажные маты и композиты", icon: "Droplets" },
-              { name: "Сварка Мембраны", desc: "Профессиональная сварка геомембран", icon: "Flame", details: "Мы предоставляем услуги профессиональной сварки геомембран с использованием современного оборудования. Гарантируем качественные и надежные швы, соответствующие всем стандартам. Опытные специалисты, выезд на объект, контроль качества на всех этапах работы." },
-              { name: "Геокомпозиты", desc: "Многофункциональные материалы", icon: "Box" }
+              { 
+                name: "Геотекстиль", 
+                desc: "Нетканые и тканые материалы различной плотности", 
+                icon: "Layers",
+                images: [
+                  "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/files/75e39f14-0046-4909-b2a9-4d69bef84f5f.jpg"
+                ]
+              },
+              { 
+                name: "Геомембраны", 
+                desc: "HDPE, LDPE мембраны для гидроизоляции", 
+                icon: "Shield",
+                images: [
+                  "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/files/288927b8-d4ad-444b-b941-8feee9e78c82.jpg"
+                ]
+              },
+              { 
+                name: "Георешетки", 
+                desc: "Для укрепления грунтов и откосов", 
+                icon: "Grid3x3",
+                images: [
+                  "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/files/574edbde-44f5-4d1a-a7f6-230dafe2aea7.jpg"
+                ]
+              },
+              { 
+                name: "Геосетки", 
+                desc: "Армирование дорожных покрытий", 
+                icon: "Network",
+                images: [
+                  "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/files/5950c368-2a02-4ccb-a3ab-05179d1b6154.jpg"
+                ]
+              },
+              { 
+                name: "Дренажные материалы", 
+                desc: "Дренажные маты и композиты", 
+                icon: "Droplets",
+                images: [
+                  "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/files/db73083e-07a0-42ed-9f8b-2d15b88b2d20.jpg"
+                ]
+              },
+              { 
+                name: "Сварка Мембраны", 
+                desc: "Профессиональная сварка геомембран", 
+                icon: "Flame", 
+                details: "Мы предоставляем услуги профессиональной сварки геомембран с использованием современного оборудования. Гарантируем качественные и надежные швы, соответствующие всем стандартам. Опытные специалисты, выезд на объект, контроль качества на всех этапах работы." 
+              },
+              { 
+                name: "Геокомпозиты", 
+                desc: "Многофункциональные материалы", 
+                icon: "Box",
+                images: [
+                  "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/files/9a501c15-4476-4834-bd68-268bdf19f93d.jpg"
+                ]
+              }
             ].map((product, idx) => (
               <Card key={idx} className="hover:shadow-lg transition-all duration-300 border-2 hover:border-accent animate-fade-in" style={{ animationDelay: `${idx * 0.1}s` }}>
                 <CardContent className="pt-6">
@@ -138,20 +185,34 @@ const Index = () => {
                   </div>
                   <h3 className="text-2xl font-bold mb-3">{product.name}</h3>
                   <p className="text-muted-foreground mb-4">{product.desc}</p>
-                  {product.details ? (
+                  {product.details || product.images ? (
                     <Dialog open={openDialog === idx} onOpenChange={(open) => setOpenDialog(open ? idx : null)}>
                       <DialogTrigger asChild>
                         <Button variant="link" className="text-accent p-0 h-auto">
                           Подробнее <Icon name="ArrowRight" size={16} className="ml-1" />
                         </Button>
                       </DialogTrigger>
-                      <DialogContent className="max-w-2xl">
+                      <DialogContent className="max-w-3xl">
                         <DialogHeader>
                           <DialogTitle className="text-2xl">{product.name}</DialogTitle>
-                          <DialogDescription className="text-base pt-4">
-                            {product.details}
-                          </DialogDescription>
+                          {product.details && (
+                            <DialogDescription className="text-base pt-4">
+                              {product.details}
+                            </DialogDescription>
+                          )}
                         </DialogHeader>
+                        {product.images && (
+                          <div className="grid grid-cols-1 gap-4 mt-4">
+                            {product.images.map((img, imgIdx) => (
+                              <img 
+                                key={imgIdx} 
+                                src={img} 
+                                alt={`${product.name} ${imgIdx + 1}`}
+                                className="w-full h-auto rounded-lg object-cover"
+                              />
+                            ))}
+                          </div>
+                        )}
                       </DialogContent>
                     </Dialog>
                   ) : (
