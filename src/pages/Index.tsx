@@ -461,7 +461,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
-              <div className="flex flex-col items-center gap-2 mb-4">
+              <div className="flex flex-col items-start gap-2 mb-4">
                 <div className="text-xs font-semibold text-primary-foreground border-b-2 border-accent pb-0.5">
                   ГРУППА КОМПАНИЙ "ПОВОЛЖЬЕ"
                 </div>
