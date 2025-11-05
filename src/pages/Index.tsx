@@ -118,6 +118,7 @@ const Index = () => {
               { name: "Георешетки", desc: "Для укрепления грунтов и откосов", icon: "Grid3x3" },
               { name: "Геосетки", desc: "Армирование дорожных покрытий", icon: "Network" },
               { name: "Дренажные материалы", desc: "Дренажные маты и композиты", icon: "Droplets" },
+              { name: "Новый продукт", desc: "Описание нового продукта", icon: "Package" },
               { name: "Геокомпозиты", desc: "Многофункциональные материалы", icon: "Box" }
             ].map((product, idx) => (
               <Card key={idx} className="hover:shadow-lg transition-all duration-300 border-2 hover:border-accent animate-fade-in" style={{ animationDelay: `${idx * 0.1}s` }}>
