@@ -17,7 +17,7 @@ const Index = () => {
     <div className="min-h-screen">
       <header className="fixed top-0 w-full bg-primary/95 backdrop-blur-sm z-50 border-b border-border">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex flex-col items-start gap-1">
+          <div className="flex flex-col items-center gap-1">
             <div className="text-xs font-semibold text-primary-foreground border-b-2 border-accent pb-0.5">
               ГРУППА КОМПАНИЙ "ПОВОЛЖЬЕ"
             </div>
