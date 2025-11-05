@@ -34,9 +34,9 @@ const Footer = () => {
                 <Icon name="Phone" size={18} />
                 <span>+7 (999) 141-65-80</span>
               </a>
-              <a href="mailto:info@gkpovolzhie.ru" className="flex items-center gap-2 text-primary-foreground/80 hover:text-accent transition-colors">
+              <a href="mailto:TD.Povolzhje@yandex.ru" className="flex items-center gap-2 text-primary-foreground/80 hover:text-accent transition-colors">
                 <Icon name="Mail" size={18} />
-                <span>info@gkpovolzhie.ru</span>
+                <span>TD.Povolzhje@yandex.ru</span>
               </a>
               <a href="https://wa.me/79991416580" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary-foreground/80 hover:text-accent transition-colors">
                 <Icon name="MessageCircle" size={18} />

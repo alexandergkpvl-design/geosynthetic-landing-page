@@ -30,8 +30,8 @@ const ContactsSection = () => {
                 </div>
                 <div>
                   <h3 className="font-bold mb-2">Email</h3>
-                  <a href="mailto:info@gkpovolzhie.ru" className="text-lg text-accent hover:underline">
-                    info@gkpovolzhie.ru
+                  <a href="mailto:TD.Povolzhje@yandex.ru" className="text-lg text-accent hover:underline">
+                    TD.Povolzhje@yandex.ru
                   </a>
                   <p className="text-sm text-muted-foreground mt-1">Ответим в течение часа</p>
                 </div>
@@ -76,7 +76,7 @@ const ContactsSection = () => {
                 </Button>
                 
                 <Button size="lg" variant="outline" className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground" asChild>
-                  <a href="mailto:info@gkpovolzhie.ru">
+                  <a href="mailto:TD.Povolzhje@yandex.ru">
                     <Icon name="Mail" size={20} className="mr-2" />
                     Отправить email
                   </a>

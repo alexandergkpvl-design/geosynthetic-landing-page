@@ -51,7 +51,7 @@ const PricesSection = () => {
 
         <div className="text-center mt-12">
           <Button size="lg" className="bg-accent hover:bg-accent/90 text-lg px-8" asChild>
-            <a href="tel:+79991416580">Запросить расчет</a>
+            <a href="https://wa.me/79991416580">Запросить расчет</a>
           </Button>
         </div>
       </div>
