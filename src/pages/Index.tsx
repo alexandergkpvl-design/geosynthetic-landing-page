@@ -461,7 +461,12 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
-              <div className="text-2xl font-bold mb-4">ГК "ПОВОЛЖЬЕ"</div>
+              <div className="flex flex-col items-start gap-2 mb-4">
+                <div className="text-xs font-semibold text-primary-foreground border-b-2 border-accent pb-0.5">
+                  ГРУППА КОМПАНИЙ "ПОВОЛЖЬЕ"
+                </div>
+                <img src="https://cdn.poehali.dev/files/4c65673f-a700-4b83-819a-38c724187734.png" alt="ГК ПОВОЛЖЬЕ" className="h-10" />
+              </div>
               <p className="text-primary-foreground/80">
                 Поставки геосинтетики по всей России. Качество, скорость, надежность.
               </p>
