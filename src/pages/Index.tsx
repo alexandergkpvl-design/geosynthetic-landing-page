@@ -17,7 +17,12 @@ const Index = () => {
     <div className="min-h-screen">
       <header className="fixed top-0 w-full bg-primary/95 backdrop-blur-sm z-50 border-b border-border">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <img src="https://cdn.poehali.dev/files/4c65673f-a700-4b83-819a-38c724187734.png" alt="ГК ПОВОЛЖЬЕ" className="h-12" />
+          <div className="flex flex-col items-start gap-1">
+            <div className="text-xs font-semibold text-primary-foreground border-b-2 border-accent pb-0.5">
+              ГРУППА КОМПАНИЙ "ПОВОЛЖЬЕ"
+            </div>
+            <img src="https://cdn.poehali.dev/files/4c65673f-a700-4b83-819a-38c724187734.png" alt="ГК ПОВОЛЖЬЕ" className="h-10" />
+          </div>
           <nav className="hidden md:flex gap-6">
             <a href="#advantages" className="text-primary-foreground hover:text-accent transition-colors">Преимущества</a>
             <a href="#products" className="text-primary-foreground hover:text-accent transition-colors">Продукция</a>
