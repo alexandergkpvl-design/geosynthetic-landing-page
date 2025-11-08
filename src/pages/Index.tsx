@@ -7,6 +7,7 @@ import DeliverySection from "@/components/DeliverySection";
 import AboutSection from "@/components/AboutSection";
 import ContactsSection from "@/components/ContactsSection";
 import Footer from "@/components/Footer";
+import FloatingTelegramButton from "@/components/FloatingTelegramButton";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <AboutSection />
       <ContactsSection />
       <Footer />
+      <FloatingTelegramButton />
     </div>
   );
 };
