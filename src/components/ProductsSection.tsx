@@ -11,10 +11,19 @@ import {
 } from "@/components/ui/dialog";
 import { useState } from "react";
 
+interface Product {
+  name: string;
+  desc: string;
+  icon: string;
+  images?: string[];
+  details?: string;
+  relatedProducts?: string[];
+}
+
 const ProductsSection = () => {
   const [openDialog, setOpenDialog] = useState<number | null>(null);
 
-  const products = [
+  const products: Product[] = [
     { 
       name: "Геотекстиль", 
       desc: "Нетканые и тканые материалы различной плотности", 
@@ -76,6 +85,23 @@ const ProductsSection = () => {
       desc: "Профессиональная сварка геомембран", 
       icon: "Flame", 
       details: "Мы предоставляем услуги профессиональной сварки геомембран с использованием современного оборудования. Гарантируем качественные и надежные швы, соответствующие всем стандартам. Опытные специалисты, выезд на объект, контроль качества на всех этапах работы." 
+    },
+    { 
+      name: "Сопутствующие материалы", 
+      desc: "Материалы для работы с геотекстилем", 
+      icon: "Package",
+      relatedProducts: [
+        "Анкерные болты и крепежи для фиксации геотекстиля",
+        "Клеевые составы и мастики для склейки полотен",
+        "Защитные геоматы и прослойки",
+        "Дренажные трубы и фитинги",
+        "Геотекстильные шпильки и скобы",
+        "Песок и щебень фракционный",
+        "Бентонитовые маты для гидроизоляции",
+        "Разметочные материалы и инструменты",
+        "Защитные покрытия от УФ-излучения",
+        "Комплектующие для монтажа дренажных систем"
+      ]
     }
   ];
 
@@ -94,19 +120,27 @@ const ProductsSection = () => {
                 <h3 className="text-2xl font-bold mb-3">{product.name}</h3>
                 <p className="text-muted-foreground mb-4 flex-grow">{product.desc}</p>
                 
-                {product.images && product.images.length > 0 && (
-                  <Dialog open={openDialog === idx} onOpenChange={(open) => setOpenDialog(open ? idx : null)}>
-                    <DialogTrigger asChild>
-                      <Button variant="outline" className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground mt-auto">
-                        Подробнее
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-[90vw] max-h-[90vh] overflow-y-auto">
-                      <DialogHeader>
-                        <DialogTitle>{product.name}</DialogTitle>
-                        <DialogDescription>{product.desc}</DialogDescription>
-                      </DialogHeader>
-                      <div className="grid gap-4">
+                <Dialog open={openDialog === idx} onOpenChange={(open) => setOpenDialog(open ? idx : null)}>
+                  <DialogTrigger asChild>
+                    <Button variant="outline" className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground mt-auto">
+                      Подробнее
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-[90vw] max-h-[90vh] overflow-y-auto">
+                    <DialogHeader className="space-y-4">
+                      <div className="flex justify-center">
+                        <img 
+                          src="https://cdn.poehali.dev/files/4c65673f-a700-4b83-819a-38c724187734.png" 
+                          alt="ГК ПОВОЛЖЬЕ" 
+                          className="h-12"
+                        />
+                      </div>
+                      <DialogTitle className="text-center">{product.name}</DialogTitle>
+                      {product.desc && <DialogDescription className="text-center">{product.desc}</DialogDescription>}
+                    </DialogHeader>
+                    
+                    {product.images && product.images.length > 0 && (
+                      <div className="grid gap-4 mt-4">
                         {product.images.map((img, imgIdx) => (
                           <img 
                             key={imgIdx} 
@@ -116,27 +150,29 @@ const ProductsSection = () => {
                           />
                         ))}
                       </div>
-                    </DialogContent>
-                  </Dialog>
-                )}
-                
-                {product.details && !product.images && (
-                  <Dialog open={openDialog === idx} onOpenChange={(open) => setOpenDialog(open ? idx : null)}>
-                    <DialogTrigger asChild>
-                      <Button variant="outline" className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground mt-auto">
-                        Подробнее
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-[90vw] max-h-[90vh] overflow-y-auto">
-                      <DialogHeader>
-                        <DialogTitle>{product.name}</DialogTitle>
-                      </DialogHeader>
+                    )}
+                    
+                    {product.details && (
                       <div className="py-4">
                         <p className="text-foreground leading-relaxed">{product.details}</p>
                       </div>
-                    </DialogContent>
-                  </Dialog>
-                )}
+                    )}
+                    
+                    {product.relatedProducts && (
+                      <div className="py-4">
+                        <h4 className="font-semibold text-lg mb-3">Ассортимент:</h4>
+                        <ul className="space-y-2">
+                          {product.relatedProducts.map((item, itemIdx) => (
+                            <li key={itemIdx} className="flex items-start gap-2">
+                              <Icon name="CheckCircle2" size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                              <span className="text-foreground">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </DialogContent>
+                </Dialog>
               </CardContent>
             </Card>
           ))}
