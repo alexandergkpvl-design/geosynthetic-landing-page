@@ -46,8 +46,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 pt-8 text-center text-primary-foreground/60">
-          <p>&copy; {new Date().getFullYear()} ГК "ПОВОЛЖЬЕ". Все права защищены.</p>
+        <div className="border-t border-primary-foreground/20 pt-8">
+          <div className="flex justify-between items-center">
+            <p className="text-primary-foreground/60 text-sm">Designed by Wilhelm@</p>
+            <p className="text-primary-foreground/60 text-center flex-1">&copy; {new Date().getFullYear()} ГК "ПОВОЛЖЬЕ". Все права защищены.</p>
+          </div>
         </div>
       </div>
     </footer>
