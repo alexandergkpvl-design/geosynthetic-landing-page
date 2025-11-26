@@ -49,9 +49,9 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     body_data = json.loads(event.get('body', '{}'))
     order = OrderRequest(**body_data)
     
-    email_user = os.environ.get('EMAIL_USER')
-    email_password = os.environ.get('EMAIL_PASSWORD')
-    email_to = os.environ.get('EMAIL_TO')
+    email_user = os.environ.get('EMAIL_USER', '')
+    email_password = os.environ.get('EMAIL_APP_PASSWORD', os.environ.get('EMAIL_PASSWORD', ''))
+    email_to = os.environ.get('EMAIL_TO', '')
     
     email_body = f'''
 Новая заявка с сайта ГК ПОВОЛЖЬЕ
@@ -67,24 +67,30 @@ Email: {order.email if order.email else 'Не указан'}
 {order.comment if order.comment else 'Нет комментария'}
 '''
     
-    msg = MIMEMultipart()
-    msg['From'] = email_user
-    msg['To'] = email_to
-    msg['Subject'] = f'Новая заявка от {order.name}'
-    msg.attach(MIMEText(email_body, 'plain', 'utf-8'))
-    
-    if 'yandex' in email_user.lower():
-        smtp_server = 'smtp.yandex.ru'
-        smtp_port = 587
-    else:
-        smtp_server = 'smtp.gmail.com'
-        smtp_port = 587
-    
-    server = smtplib.SMTP(smtp_server, smtp_port)
-    server.starttls()
-    server.login(email_user, email_password)
-    server.send_message(msg)
-    server.quit()
+    if email_user and email_password and email_to:
+        msg = MIMEMultipart()
+        msg['From'] = email_user
+        msg['To'] = email_to
+        msg['Subject'] = f'Новая заявка от {order.name}'
+        msg.attach(MIMEText(email_body, 'plain', 'utf-8'))
+        
+        if 'yandex' in email_user.lower():
+            smtp_server = 'smtp.yandex.ru'
+            smtp_port = 465
+        else:
+            smtp_server = 'smtp.gmail.com'
+            smtp_port = 587
+        
+        if 'yandex' in email_user.lower():
+            server = smtplib.SMTP_SSL(smtp_server, smtp_port)
+            server.login(email_user, email_password)
+        else:
+            server = smtplib.SMTP(smtp_server, smtp_port)
+            server.starttls()
+            server.login(email_user, email_password)
+        
+        server.send_message(msg)
+        server.quit()
     
     whatsapp_text = f'''Заявка с сайта%0A%0AИмя: {order.name}%0AТелефон: {order.phone}%0A%0AТовары:%0A{urllib.parse.quote(order.products)}'''
     whatsapp_url = f'https://wa.me/79991416580?text={whatsapp_text}'
