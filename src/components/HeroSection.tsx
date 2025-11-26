@@ -31,11 +31,11 @@ const HeroSection = () => {
             <div>✓ Доставка за 24 часа</div>
           </div>
           <div className="flex flex-wrap gap-4">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-lg px-8" asChild>
-              <a href="tel:+79991416580">Получить консультацию</a>
+            <Button size="lg" className="bg-accent hover:bg-accent/90 text-lg px-8 shadow-2xl animate-pulse" asChild>
+              <a href="tel:+79991416580">🔥 Заказать сейчас со скидкой</a>
             </Button>
             <Button size="lg" variant="outline" className="text-lg px-8 bg-white/10 hover:bg-white/20 text-white border-white" asChild>
-              <a href="#prices">Узнать цены</a>
+              <a href="#products">Смотреть каталог</a>
             </Button>
           </div>
         </div>
