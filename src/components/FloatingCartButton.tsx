@@ -12,7 +12,7 @@ const FloatingCartButton = () => {
     <Button
       onClick={openCart}
       size="lg"
-      className="fixed bottom-24 right-6 z-50 rounded-full w-16 h-16 shadow-lg bg-accent hover:bg-accent/90 animate-bounce"
+      className="fixed bottom-[88px] right-6 z-50 rounded-full w-16 h-16 shadow-lg bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 animate-bounce"
     >
       <div className="relative">
         <Icon name="ShoppingCart" size={24} />
