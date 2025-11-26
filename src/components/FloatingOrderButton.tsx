@@ -10,7 +10,7 @@ const FloatingOrderButton = () => {
     <>
       <Button
         size="lg"
-        className="fixed bottom-6 right-6 z-40 rounded-full w-16 h-16 shadow-2xl bg-accent hover:bg-accent/90 animate-bounce"
+        className="fixed bottom-6 right-6 z-40 rounded-full w-16 h-16 shadow-2xl bg-accent hover:bg-accent/90"
         onClick={() => setIsFormOpen(true)}
       >
         <Icon name="ShoppingCart" size={28} />
