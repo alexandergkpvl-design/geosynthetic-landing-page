@@ -10,6 +10,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { useState } from "react";
+import { useCart } from "@/contexts/CartContext";
+import { useToast } from "@/hooks/use-toast";
 
 interface Product {
   name: string;
@@ -23,6 +25,16 @@ interface Product {
 const ProductsSection = () => {
   const [openDialog, setOpenDialog] = useState<number | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState<Record<number, number>>({});
+  const { addToCart } = useCart();
+  const { toast } = useToast();
+
+  const handleAddToCart = (productName: string) => {
+    addToCart(productName);
+    toast({
+      title: "Добавлено в корзину",
+      description: `${productName} добавлен в корзину`,
+    });
+  };
 
   const products: Product[] = [
     { 
@@ -249,7 +261,17 @@ const ProductsSection = () => {
                       </div>
                     )}
                     
-                    <div className="pt-4 border-t">
+                    <div className="pt-4 border-t space-y-3">
+                      <Button 
+                        className="w-full bg-accent hover:bg-accent/90"
+                        onClick={() => {
+                          handleAddToCart(product.name);
+                          setOpenDialog(null);
+                        }}
+                      >
+                        <Icon name="ShoppingCart" size={20} className="mr-2" />
+                        Добавить в корзину
+                      </Button>
                       <Button className="w-full bg-[#0088cc] hover:bg-[#006699] text-white" asChild>
                         <a href="https://t.me/+tNkgLYPWUm00NDli" target="_blank" rel="noopener noreferrer">
                           <Icon name="Send" size={20} className="mr-2" />

@@ -14,27 +14,34 @@ import ContactsSection from "@/components/ContactsSection";
 import Footer from "@/components/Footer";
 import FloatingTelegramButton from "@/components/FloatingTelegramButton";
 import SubscriptionPopup from "@/components/SubscriptionPopup";
+import Cart from "@/components/Cart";
+import FloatingCartButton from "@/components/FloatingCartButton";
+import { CartProvider } from "@/contexts/CartContext";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <UrgencyBanner />
-      <Header />
-      <HeroSection />
-      <StatsSection />
-      <AdvantagesSection />
-      <ProductsSection />
-      <GuaranteesSection />
-      <SocialProof />
-      <PricesSection />
-      <DeliverySection />
-      <AboutSection />
-      <FAQSection />
-      <ContactsSection />
-      <Footer />
-      <FloatingTelegramButton />
-      <SubscriptionPopup />
-    </div>
+    <CartProvider>
+      <div className="min-h-screen">
+        <UrgencyBanner />
+        <Header />
+        <HeroSection />
+        <StatsSection />
+        <AdvantagesSection />
+        <ProductsSection />
+        <GuaranteesSection />
+        <SocialProof />
+        <PricesSection />
+        <DeliverySection />
+        <AboutSection />
+        <FAQSection />
+        <ContactsSection />
+        <Footer />
+        <FloatingTelegramButton />
+        <FloatingCartButton />
+        <SubscriptionPopup />
+        <Cart />
+      </div>
+    </CartProvider>
   );
 };
 

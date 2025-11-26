@@ -1,11 +1,10 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
-import OrderForm from "./OrderForm";
+import { useCart } from "@/contexts/CartContext";
 
 const ContactsSection = () => {
-  const [isOrderFormOpen, setIsOrderFormOpen] = useState(false);
+  const { openCart } = useCart();
 
   return (
     <section id="contacts" className="py-20 bg-secondary/30">
@@ -68,7 +67,7 @@ const ContactsSection = () => {
                 <Button 
                   size="lg" 
                   className="w-full bg-accent hover:bg-accent/90"
-                  onClick={() => setIsOrderFormOpen(true)}
+                  onClick={openCart}
                 >
                   <Icon name="ShoppingCart" size={20} className="mr-2" />
                   Заказать товары
@@ -121,8 +120,6 @@ const ContactsSection = () => {
           </Button>
         </div>
       </div>
-
-      <OrderForm isOpen={isOrderFormOpen} onClose={() => setIsOrderFormOpen(false)} />
     </section>
   );
 };
