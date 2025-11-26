@@ -10,6 +10,7 @@ import AboutSection from "@/components/AboutSection";
 import ContactsSection from "@/components/ContactsSection";
 import Footer from "@/components/Footer";
 import FloatingTelegramButton from "@/components/FloatingTelegramButton";
+import FloatingOrderButton from "@/components/FloatingOrderButton";
 import SubscriptionPopup from "@/components/SubscriptionPopup";
 
 const Index = () => {
@@ -26,6 +27,7 @@ const Index = () => {
       <ContactsSection />
       <Footer />
       <FloatingTelegramButton />
+      <FloatingOrderButton />
       <SubscriptionPopup />
     </div>
   );

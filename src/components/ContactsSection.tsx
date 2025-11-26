@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
+import OrderForm from "./OrderForm";
 
 const ContactsSection = () => {
+  const [isOrderFormOpen, setIsOrderFormOpen] = useState(false);
+
   return (
     <section id="contacts" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
@@ -56,12 +60,21 @@ const ContactsSection = () => {
             <CardContent className="pt-6">
               <h3 className="text-2xl font-bold mb-4">Готовы сделать заказ?</h3>
               <p className="text-muted-foreground mb-6">
-                Свяжитесь с нами удобным способом, и наши специалисты проконсультируют вас 
-                по всем вопросам, подберут оптимальные материалы и рассчитают стоимость.
+                Заполните форму заказа или свяжитесь с нами удобным способом, 
+                и наши специалисты проконсультируют вас по всем вопросам.
               </p>
               
               <div className="space-y-3">
-                <Button size="lg" className="w-full bg-accent hover:bg-accent/90" asChild>
+                <Button 
+                  size="lg" 
+                  className="w-full bg-accent hover:bg-accent/90"
+                  onClick={() => setIsOrderFormOpen(true)}
+                >
+                  <Icon name="ShoppingCart" size={20} className="mr-2" />
+                  Заказать товары
+                </Button>
+
+                <Button size="lg" variant="outline" className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground" asChild>
                   <a href="tel:+79991416580">
                     <Icon name="Phone" size={20} className="mr-2" />
                     Позвонить
@@ -108,6 +121,8 @@ const ContactsSection = () => {
           </Button>
         </div>
       </div>
+
+      <OrderForm isOpen={isOrderFormOpen} onClose={() => setIsOrderFormOpen(false)} />
     </section>
   );
 };
