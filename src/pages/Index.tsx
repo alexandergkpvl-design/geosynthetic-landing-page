@@ -14,7 +14,6 @@ import ContactsSection from "@/components/ContactsSection";
 import Footer from "@/components/Footer";
 import FloatingTelegramButton from "@/components/FloatingTelegramButton";
 import SubscriptionPopup from "@/components/SubscriptionPopup";
-import PageViewsWidget from "@/components/PageViewsWidget";
 
 const Index = () => {
   return (
@@ -35,7 +34,6 @@ const Index = () => {
       <Footer />
       <FloatingTelegramButton />
       <SubscriptionPopup />
-      <PageViewsWidget />
     </div>
   );
 };
