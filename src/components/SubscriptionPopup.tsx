@@ -46,7 +46,7 @@ const SubscriptionPopup = () => {
     localStorage.setItem("hasSeenSubscriptionPopup", "true");
   };
 
-  const handleSubscribe = () => {
+  const handleSubscribe = async () => {
     if (!email && !phone) {
       toast({
         title: "Ошибка",
@@ -56,12 +56,33 @@ const SubscriptionPopup = () => {
       return;
     }
 
-    toast({
-      title: "Спасибо за подписку! 🎉",
-      description: "Мы отправим вам специальное предложение в ближайшее время",
-    });
+    try {
+      const response = await fetch('https://functions.poehali.dev/c7b3fd3b-995d-4a34-bc1f-211ee5a32ff1', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, phone }),
+      });
 
-    handleClose();
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        toast({
+          title: "Спасибо за подписку! 🎉",
+          description: "Мы отправим вам специальное предложение в ближайшее время",
+        });
+        handleClose();
+      } else {
+        throw new Error('Failed to send');
+      }
+    } catch (error) {
+      toast({
+        title: "Ошибка",
+        description: "Не удалось отправить заявку. Попробуйте позже или свяжитесь с нами напрямую.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleTelegramJoin = () => {
