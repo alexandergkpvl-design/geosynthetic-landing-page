@@ -28,14 +28,14 @@ const PageViewsWidget = () => {
   if (!isVisible) return null;
 
   return (
-    <Card className="fixed bottom-24 left-6 z-40 bg-background/95 backdrop-blur-sm border-2 border-accent/20 shadow-lg p-4 animate-in slide-in-from-bottom-5 duration-500">
-      <div className="flex items-center gap-3">
-        <div className="w-12 h-12 bg-gradient-to-br from-accent/20 to-accent/10 rounded-full flex items-center justify-center">
-          <Icon name="Eye" size={24} className="text-accent" />
+    <Card className="fixed bottom-6 left-6 z-40 bg-background/95 backdrop-blur-sm border border-accent/20 shadow-md p-2.5 animate-in slide-in-from-bottom-5 duration-500">
+      <div className="flex items-center gap-2">
+        <div className="w-8 h-8 bg-gradient-to-br from-accent/20 to-accent/10 rounded-full flex items-center justify-center">
+          <Icon name="Eye" size={16} className="text-accent" />
         </div>
         <div>
-          <p className="text-xs text-muted-foreground font-medium">Просмотры страницы</p>
-          <p className="text-2xl font-bold text-foreground tabular-nums">
+          <p className="text-[10px] text-muted-foreground font-medium leading-tight">Просмотры</p>
+          <p className="text-lg font-bold text-foreground tabular-nums leading-tight">
             {views.toLocaleString('ru-RU')}
           </p>
         </div>
