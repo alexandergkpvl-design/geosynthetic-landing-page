@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
   <url>
     <loc>https://geosynthetic-landing-page.poehali.dev/</loc>
     <lastmod>2025-11-26</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/files/og-image-1764053592662.jpg</image:loc>
+      <image:caption>ГК Поволжье - Геосинтетические материалы</image:caption>
+      <image:title>Геосинтетика, Дорнит, Геотекстиль</image:title>
+    </image:image>
   </url>
+
 </urlset>
