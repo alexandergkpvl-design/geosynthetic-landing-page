@@ -192,7 +192,7 @@ const ProductsSection = () => {
                         <img 
                           src={product.images[currentImageIndex[idx] || 0]} 
                           alt={`${product.name} ${(currentImageIndex[idx] || 0) + 1}`}
-                          className="w-full h-auto rounded-lg"
+                          className="w-full h-64 object-cover rounded-lg"
                         />
                         {product.images.length > 1 && (
                           <>
