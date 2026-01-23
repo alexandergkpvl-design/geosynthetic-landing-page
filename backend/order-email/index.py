@@ -118,7 +118,6 @@ Email: {order.email if order.email else 'Не указан'}
                 email_sent = True
     except Exception as e:
         errors.append(f'Email error: {str(e)}')
-        print(f'Email send error: {e}')
     
     # Отправка в Telegram
     try:
@@ -155,34 +154,19 @@ Email: {order.email if order.email else 'Не указан'}
                     telegram_sent = True
     except Exception as e:
         errors.append(f'Telegram error: {str(e)}')
-        print(f'Telegram send error: {e}')
     
-    if email_sent or telegram_sent:
-        return {
-            'statusCode': 200,
-            'headers': {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            },
-            'isBase64Encoded': False,
-            'body': json.dumps({
-                'success': True,
-                'message': 'Заявка отправлена',
-                'email_sent': email_sent,
-                'telegram_sent': telegram_sent
-            })
-        }
-    else:
-        return {
-            'statusCode': 500,
-            'headers': {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            },
-            'isBase64Encoded': False,
-            'body': json.dumps({
-                'success': False,
-                'error': 'Failed to send order',
-                'details': errors
-            })
-        }
+    return {
+        'statusCode': 200,
+        'headers': {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        },
+        'isBase64Encoded': False,
+        'body': json.dumps({
+            'success': True,
+            'message': 'Заявка отправлена',
+            'email_sent': email_sent,
+            'telegram_sent': telegram_sent,
+            'errors': errors if errors else None
+        })
+    }
