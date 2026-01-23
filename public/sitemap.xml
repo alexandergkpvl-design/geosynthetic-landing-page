@@ -4,15 +4,14 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    https://geosynthetic-landing-page.poehali.dev/sitemap.xml
     <loc>https://geosynthetic-landing-page.poehali.dev/</loc>
-    <lastmod>2025-11-26</lastmod>
+    <lastmod>2026-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/files/og-image-1764053592662.jpg</image:loc>
-      <image:caption>ГК Поволжье - Геосинтетические материалы</image:caption>
-      <image:title>Геосинтетика, Дорнит, Геотекстиль</image:title>
+      <image:caption>Купить Дорнит в Нижнем Новгороде - ГК Поволжье (Gkpovolzhje, Povolzhje)</image:caption>
+      <image:title>Геосинтетика, Геотекстиль, Георешетка, Габионы - Доставка по России</image:title>
     </image:image>
   </url>
 
