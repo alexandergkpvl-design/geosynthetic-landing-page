@@ -3,9 +3,9 @@ import Icon from '@/components/ui/icon';
 
 export default function SupportChat() {
   const [isOpen, setIsOpen] = useState(false);
-  const phoneNumber = '+79991416580';
-  const whatsappLink = `https://wa.me/79991416580?text=${encodeURIComponent('Здравствуйте! Интересует геосинтетика.')}`;
-  const telegramLink = 'https://t.me/+79991416580';
+  const phoneNumber1 = '+79991413600';
+  const phoneNumber2 = '+79990741177';
+  const telegramLink = 'https://t.me/+79991413600';
 
   return (
     <>
@@ -35,7 +35,7 @@ export default function SupportChat() {
             </p>
 
             <a 
-              href={`tel:${phoneNumber}`}
+              href={`tel:${phoneNumber1}`}
               className="flex items-center gap-3 p-3 bg-green-50 hover:bg-green-100 rounded-lg transition-colors border border-green-200 group"
             >
               <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -43,22 +43,20 @@ export default function SupportChat() {
               </div>
               <div className="flex-1">
                 <p className="text-xs text-gray-600 font-medium">Позвонить</p>
-                <p className="text-sm font-semibold text-gray-800">+7 (999) 141-65-80</p>
+                <p className="text-sm font-semibold text-gray-800">+7 (999) 141-36-00</p>
               </div>
             </a>
 
             <a 
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`tel:${phoneNumber2}`}
               className="flex items-center gap-3 p-3 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition-colors border border-emerald-200 group"
             >
               <div className="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Icon name="MessageCircle" size={20} className="text-white" />
+                <Icon name="Phone" size={20} className="text-white" />
               </div>
               <div className="flex-1">
-                <p className="text-xs text-gray-600 font-medium">WhatsApp</p>
-                <p className="text-sm font-semibold text-gray-800">Написать в чат</p>
+                <p className="text-xs text-gray-600 font-medium">Позвонить</p>
+                <p className="text-sm font-semibold text-gray-800">+7 (999) 074-11-77</p>
               </div>
             </a>
 

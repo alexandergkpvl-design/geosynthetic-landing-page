@@ -18,7 +18,7 @@ const Header = () => {
           <a href="#contacts" className="text-primary-foreground hover:text-accent transition-colors">Контакты</a>
         </nav>
         <Button size="sm" className="bg-accent hover:bg-accent/90" asChild>
-          <a href="https://wa.me/79991416580" target="_blank" rel="noopener noreferrer">ONLINE</a>
+          <a href="tel:+79991413600">+7 (999) 141-36-00</a>
         </Button>
       </div>
     </header>

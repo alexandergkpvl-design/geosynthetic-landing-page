@@ -32,20 +32,7 @@ const FloatingTelegramButton = () => {
           </a>
         </Button>
         
-        <Button
-          size="lg"
-          className="bg-[#25D366] hover:bg-[#1da851] text-white shadow-lg rounded-full w-14 h-14 p-0 transition-all hover:scale-110"
-          asChild
-        >
-          <a
-            href="https://wa.me/79991416580"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp"
-          >
-            <Icon name="MessageCircle" size={24} />
-          </a>
-        </Button>
+
       </div>
 
       <OrderForm isOpen={isOrderFormOpen} onClose={() => setIsOrderFormOpen(false)} />

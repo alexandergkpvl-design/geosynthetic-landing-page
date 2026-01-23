@@ -19,9 +19,12 @@ const ContactsSection = () => {
                   <Icon name="Phone" size={24} className="text-accent" />
                 </div>
                 <div>
-                  <h3 className="font-bold mb-2">Телефон</h3>
-                  <a href="tel:+79991416580" className="text-lg text-accent hover:underline">
-                    +7 (999) 141-65-80
+                  <h3 className="font-bold mb-2">Телефоны</h3>
+                  <a href="tel:+79991413600" className="text-lg text-accent hover:underline block">
+                    +7 (999) 141-36-00
+                  </a>
+                  <a href="tel:+79990741177" className="text-lg text-accent hover:underline block">
+                    +7 (999) 074-11-77
                   </a>
                   <p className="text-sm text-muted-foreground mt-1">Звоните в любое время</p>
                 </div>
@@ -42,14 +45,14 @@ const ContactsSection = () => {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Icon name="MessageCircle" size={24} className="text-accent" />
+                  <Icon name="Send" size={24} className="text-accent" />
                 </div>
                 <div>
-                  <h3 className="font-bold mb-2">WhatsApp / Telegram</h3>
-                  <a href="https://wa.me/79991416580" className="text-lg text-accent hover:underline">
-                    +7 (999) 141-65-80
+                  <h3 className="font-bold mb-2">Telegram</h3>
+                  <a href="https://t.me/+79991413600" className="text-lg text-accent hover:underline">
+                    +7 (999) 141-36-00
                   </a>
-                  <p className="text-sm text-muted-foreground mt-1">Быстрая связь в мессенджерах</p>
+                  <p className="text-sm text-muted-foreground mt-1">Быстрая связь в мессенджере</p>
                 </div>
               </div>
             </CardContent>
@@ -74,16 +77,16 @@ const ContactsSection = () => {
                 </Button>
 
                 <Button size="lg" variant="outline" className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground" asChild>
-                  <a href="tel:+79991416580">
+                  <a href="tel:+79991413600">
                     <Icon name="Phone" size={20} className="mr-2" />
-                    Позвонить
+                    +7 (999) 141-36-00
                   </a>
                 </Button>
                 
                 <Button size="lg" variant="outline" className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground" asChild>
-                  <a href="https://wa.me/79991416580" target="_blank" rel="noopener noreferrer">
-                    <Icon name="MessageCircle" size={20} className="mr-2" />
-                    Написать в WhatsApp
+                  <a href="tel:+79990741177">
+                    <Icon name="Phone" size={20} className="mr-2" />
+                    +7 (999) 074-11-77
                   </a>
                 </Button>
                 

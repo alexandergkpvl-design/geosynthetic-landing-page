@@ -59,7 +59,7 @@ const OrderForm = ({ isOpen, onClose }: OrderFormProps) => {
     setSubmitStatus("idle");
 
     try {
-      const phoneNumber = "+79990741177";
+      const phoneNumber = "+79991413600";
       const email = "td.povolzhje@yandex.ru";
       const message = `Новый заказ от ${formData.name}
 Телефон: ${formData.phone}

@@ -30,17 +30,17 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-4">Контакты</h4>
             <div className="space-y-3">
-              <a href="tel:+79991416580" className="flex items-center gap-2 text-primary-foreground/80 hover:text-accent transition-colors">
+              <a href="tel:+79991413600" className="flex items-center gap-2 text-primary-foreground/80 hover:text-accent transition-colors">
                 <Icon name="Phone" size={18} />
-                <span>+7 (999) 141-65-80</span>
+                <span>+7 (999) 141-36-00</span>
+              </a>
+              <a href="tel:+79990741177" className="flex items-center gap-2 text-primary-foreground/80 hover:text-accent transition-colors">
+                <Icon name="Phone" size={18} />
+                <span>+7 (999) 074-11-77</span>
               </a>
               <a href="mailto:TD.Povolzhje@yandex.ru" className="flex items-center gap-2 text-primary-foreground/80 hover:text-accent transition-colors">
                 <Icon name="Mail" size={18} />
                 <span>TD.Povolzhje@yandex.ru</span>
-              </a>
-              <a href="https://wa.me/79991416580" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary-foreground/80 hover:text-accent transition-colors">
-                <Icon name="MessageCircle" size={18} />
-                <span>WhatsApp</span>
               </a>
             </div>
           </div>
