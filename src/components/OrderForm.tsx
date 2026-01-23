@@ -59,6 +59,14 @@ const OrderForm = ({ isOpen, onClose }: OrderFormProps) => {
     setSubmitStatus("idle");
 
     try {
+      const phoneNumber = "+79990741177";
+      const email = "td.povolzhje@yandex.ru";
+      const message = `Новый заказ от ${formData.name}
+Телефон: ${formData.phone}
+Email: ${formData.email || 'не указан'}
+Товары: ${formData.selectedProducts.join(", ")}
+Комментарий: ${formData.comment || 'нет'}`;
+
       const response = await fetch("https://functions.poehali.dev/e055938b-ab1e-4ea7-ab85-ebc4c05b3f1c", {
         method: "POST",
         headers: {
@@ -66,10 +74,12 @@ const OrderForm = ({ isOpen, onClose }: OrderFormProps) => {
         },
         body: JSON.stringify({
           name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
+          phone: phoneNumber,
+          email: email,
           products: formData.selectedProducts.join(", "),
           comment: formData.comment,
+          customer_phone: formData.phone,
+          customer_email: formData.email,
         }),
       });
 

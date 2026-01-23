@@ -8,7 +8,7 @@ const FloatingTelegramButton = () => {
 
   return (
     <>
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+      <div className="fixed bottom-6 left-6 z-50 flex flex-col gap-3">
         <Button
           size="lg"
           className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white shadow-2xl rounded-full w-16 h-16 p-0 transition-all hover:scale-110 animate-pulse"
