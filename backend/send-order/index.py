@@ -1,12 +1,9 @@
 import json
-import smtplib
 import os
 import urllib.parse
 import urllib.request
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
 from typing import Dict, Any
-from pydantic import BaseModel, Field, ValidationError
+from pydantic import BaseModel, Field
 
 class OrderRequest(BaseModel):
     name: str = Field(..., min_length=1)
@@ -14,10 +11,12 @@ class OrderRequest(BaseModel):
     email: str = Field(default='')
     products: str = Field(..., min_length=1)
     comment: str = Field(default='')
+    customer_phone: str = Field(default='')
+    customer_email: str = Field(default='')
 
 def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     '''
-    Business: Send order request via email and WhatsApp
+    Отправка заказа в Telegram на номер +79991413600
     Args: event - dict with httpMethod, body
           context - object with request_id attribute
     Returns: HTTP response dict
@@ -33,7 +32,8 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 'Access-Control-Allow-Headers': 'Content-Type',
                 'Access-Control-Max-Age': '86400'
             },
-            'body': ''
+            'body': '',
+            'isBase64Encoded': False
         }
     
     if method != 'POST':
@@ -43,57 +43,65 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*'
             },
-            'body': json.dumps({'error': 'Method not allowed'})
+            'body': json.dumps({'error': 'Method not allowed'}),
+            'isBase64Encoded': False
         }
     
-    body_data = json.loads(event.get('body', '{}'))
-    order = OrderRequest(**body_data)
+    try:
+        body_data = json.loads(event.get('body', '{}'))
+        order = OrderRequest(**body_data)
+    except Exception as e:
+        return {
+            'statusCode': 400,
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            'body': json.dumps({'error': f'Invalid request: {str(e)}'}),
+            'isBase64Encoded': False
+        }
     
-    email_user = os.environ.get('EMAIL_USER', '')
-    email_password = os.environ.get('EMAIL_APP_PASSWORD', os.environ.get('EMAIL_PASSWORD', ''))
-    email_to = os.environ.get('EMAIL_TO', '')
+    telegram_bot_token = os.environ.get('TELEGRAM_BOT_TOKEN', '')
+    telegram_chat_id = os.environ.get('TELEGRAM_CHAT_ID', '')
     
-    email_body = f'''
-Новая заявка с сайта ГК ПОВОЛЖЬЕ
+    customer_phone_display = order.customer_phone if order.customer_phone else order.phone
+    customer_email_display = order.customer_email if order.customer_email else (order.email if order.email else 'Не указан')
+    
+    telegram_message = f'''🔔 Новая заявка с сайта ГК ПОВОЛЖЬЕ
 
-Имя: {order.name}
-Телефон: {order.phone}
-Email: {order.email if order.email else 'Не указан'}
+👤 Имя: {order.name}
+📞 Телефон клиента: {customer_phone_display}
+📧 Email клиента: {customer_email_display}
 
-Товары:
+📦 Товары:
 {order.products}
 
-Комментарий:
-{order.comment if order.comment else 'Нет комментария'}
-'''
+💬 Комментарий:
+{order.comment if order.comment else 'Нет комментария'}'''
     
-    if email_user and email_password and email_to:
-        msg = MIMEMultipart()
-        msg['From'] = email_user
-        msg['To'] = email_to
-        msg['Subject'] = f'Новая заявка от {order.name}'
-        msg.attach(MIMEText(email_body, 'plain', 'utf-8'))
-        
-        if 'yandex' in email_user.lower():
-            smtp_server = 'smtp.yandex.ru'
-            smtp_port = 465
-        else:
-            smtp_server = 'smtp.gmail.com'
-            smtp_port = 587
-        
-        if 'yandex' in email_user.lower():
-            server = smtplib.SMTP_SSL(smtp_server, smtp_port)
-            server.login(email_user, email_password)
-        else:
-            server = smtplib.SMTP(smtp_server, smtp_port)
-            server.starttls()
-            server.login(email_user, email_password)
-        
-        server.send_message(msg)
-        server.quit()
+    telegram_sent = False
+    telegram_error = None
     
-    whatsapp_text = f'''Заявка с сайта%0A%0AИмя: {order.name}%0AТелефон: {order.phone}%0A%0AТовары:%0A{urllib.parse.quote(order.products)}'''
-    whatsapp_url = f'https://wa.me/79991416580?text={whatsapp_text}'
+    if telegram_bot_token and telegram_chat_id:
+        telegram_url = f'https://api.telegram.org/bot{telegram_bot_token}/sendMessage'
+        telegram_data = {
+            'chat_id': telegram_chat_id,
+            'text': telegram_message
+        }
+        
+        try:
+            req = urllib.request.Request(
+                telegram_url,
+                data=json.dumps(telegram_data).encode('utf-8'),
+                headers={'Content-Type': 'application/json'}
+            )
+            
+            with urllib.request.urlopen(req, timeout=10) as response:
+                if response.status == 200:
+                    telegram_sent = True
+        except Exception as e:
+            telegram_error = str(e)
+            print(f'Telegram send error: {e}')
     
     return {
         'statusCode': 200,
@@ -104,7 +112,7 @@ Email: {order.email if order.email else 'Не указан'}
         'isBase64Encoded': False,
         'body': json.dumps({
             'success': True,
-            'message': 'Заявка отправлена',
-            'whatsapp_url': whatsapp_url
+            'message': 'Заявка отправлена' if telegram_sent else 'Заявка принята',
+            'telegram_sent': telegram_sent
         })
     }

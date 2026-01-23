@@ -109,7 +109,7 @@ const ContactsSection = () => {
                 <h3 className="text-xl font-bold">Режим работы</h3>
               </div>
               <p className="text-muted-foreground">
-                Понедельник - Пятница: 9:00 - 16:00 (МСК)<br />
+                Понедельник - Пятница: 09:00 - 16:00 по Москве<br />
                 Суббота - Воскресенье: по договоренности
               </p>
             </CardContent>

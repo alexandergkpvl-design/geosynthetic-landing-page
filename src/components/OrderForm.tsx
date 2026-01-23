@@ -59,51 +59,24 @@ const OrderForm = ({ isOpen, onClose }: OrderFormProps) => {
     setSubmitStatus("idle");
 
     try {
-      const phoneNumber = "+79991413600";
-      const email = "td.povolzhje@yandex.ru";
-      const message = `Новый заказ от ${formData.name}
-Телефон: ${formData.phone}
-Email: ${formData.email || 'не указан'}
-Товары: ${formData.selectedProducts.join(", ")}
-Комментарий: ${formData.comment || 'нет'}`;
-
-      const response = await fetch("https://functions.poehali.dev/e055938b-ab1e-4ea7-ab85-ebc4c05b3f1c", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          phone: phoneNumber,
-          email: email,
-          products: formData.selectedProducts.join(", "),
-          comment: formData.comment,
-          customer_phone: formData.phone,
-          customer_email: formData.email,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        setSubmitStatus("success");
-        if (data.whatsapp_url) {
-          window.open(data.whatsapp_url, "_blank");
-        }
-        setTimeout(() => {
-          onClose();
-          setFormData({
-            name: "",
-            phone: "",
-            email: "",
-            comment: "",
-            selectedProducts: [],
-          });
-          setSubmitStatus("idle");
-        }, 2000);
-      } else {
-        setSubmitStatus("error");
-      }
+      const telegramMessage = `🔔 Новая заявка с сайта ГК ПОВОЛЖЬЕ%0A%0A👤 Имя: ${encodeURIComponent(formData.name)}%0A📞 Телефон: ${encodeURIComponent(formData.phone)}%0A📧 Email: ${encodeURIComponent(formData.email || 'Не указан')}%0A%0A📦 Товары:%0A${encodeURIComponent(formData.selectedProducts.join(", "))}%0A%0A💬 Комментарий:%0A${encodeURIComponent(formData.comment || 'Нет комментария')}%0A%0AОтправить ответ на: td.povolzhje@yandex.ru`;
+      
+      const telegramUrl = `https://t.me/+79991413600?text=${telegramMessage}`;
+      
+      window.open(telegramUrl, "_blank");
+      
+      setSubmitStatus("success");
+      setTimeout(() => {
+        onClose();
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          comment: "",
+          selectedProducts: [],
+        });
+        setSubmitStatus("idle");
+      }, 2000);
     } catch (error) {
       console.error("Order submission error:", error);
       setSubmitStatus("error");
@@ -192,7 +165,7 @@ Email: ${formData.email || 'не указан'}
           {submitStatus === "success" && (
             <div className="flex items-center gap-2 p-4 bg-green-50 text-green-800 rounded-lg">
               <Icon name="CheckCircle" size={20} />
-              <span>Заявка успешно отправлена! Открываем WhatsApp...</span>
+              <span>Открываем Telegram для отправки заявки...</span>
             </div>
           )}
 

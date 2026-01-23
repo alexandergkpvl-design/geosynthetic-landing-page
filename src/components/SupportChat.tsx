@@ -77,7 +77,7 @@ export default function SupportChat() {
 
             <div className="pt-2 border-t border-gray-200">
               <p className="text-xs text-gray-500 text-center">
-                Работаем: Пн-Пт 9:00-18:00
+                Работаем: Пн-Пт 9:00-16:00 (МСК)
               </p>
             </div>
           </div>

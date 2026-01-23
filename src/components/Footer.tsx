@@ -22,7 +22,6 @@ const Footer = () => {
             <div className="space-y-2">
               <a href="#advantages" className="block text-primary-foreground/80 hover:text-accent transition-colors">Преимущества</a>
               <a href="#products" className="block text-primary-foreground/80 hover:text-accent transition-colors">Продукция</a>
-              <a href="#prices" className="block text-primary-foreground/80 hover:text-accent transition-colors">Цены</a>
               <a href="#delivery" className="block text-primary-foreground/80 hover:text-accent transition-colors">Доставка</a>
             </div>
           </div>
