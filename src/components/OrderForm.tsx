@@ -118,7 +118,8 @@ Email: ${formData.email || 'не указан'}
         <DialogHeader>
           <DialogTitle className="text-2xl">Оформить заказ</DialogTitle>
           <DialogDescription>
-            Заполните форму, и мы свяжемся с вами в ближайшее время
+            Заполните форму, и мы свяжемся с вами в ближайшее время<br/>
+            <strong>Email для заказов: td.povolzhje@yandex.ru</strong>
           </DialogDescription>
         </DialogHeader>
 
@@ -215,8 +216,8 @@ Email: ${formData.email || 'не указан'}
                 </>
               ) : (
                 <>
-                  <Icon name="Send" size={20} className="mr-2" />
-                  Отправить заявку
+                  <Icon name="Mail" size={20} className="mr-2" />
+                  Отправить на td.povolzhje@yandex.ru
                 </>
               )}
             </Button>

@@ -6,13 +6,14 @@ import AdvantagesSection from "@/components/AdvantagesSection";
 import ProductsSection from "@/components/ProductsSection";
 import SocialProof from "@/components/SocialProof";
 import GuaranteesSection from "@/components/GuaranteesSection";
-import PricesSection from "@/components/PricesSection";
+
 import DeliverySection from "@/components/DeliverySection";
 import AboutSection from "@/components/AboutSection";
 import FAQSection from "@/components/FAQSection";
 import ContactsSection from "@/components/ContactsSection";
 import Footer from "@/components/Footer";
 import FloatingTelegramButton from "@/components/FloatingTelegramButton";
+import FloatingMaxButton from "@/components/FloatingMaxButton";
 import SubscriptionPopup from "@/components/SubscriptionPopup";
 import Cart from "@/components/Cart";
 import FloatingCartButton from "@/components/FloatingCartButton";
@@ -30,7 +31,6 @@ const Index = () => {
         <ProductsSection />
         <GuaranteesSection />
         <SocialProof />
-        <PricesSection />
         <DeliverySection />
         <AboutSection />
         <FAQSection />
@@ -38,6 +38,7 @@ const Index = () => {
         <Footer />
         <FloatingTelegramButton />
         <FloatingCartButton />
+        <FloatingMaxButton />
         <SubscriptionPopup />
         <Cart />
       </div>
