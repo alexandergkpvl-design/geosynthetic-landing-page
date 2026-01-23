@@ -59,19 +59,11 @@ const OrderForm = ({ isOpen, onClose }: OrderFormProps) => {
     setSubmitStatus("idle");
 
     try {
-      const emailSubject = encodeURIComponent('Новая заявка с сайта ГК ПОВОЛЖЬЕ');
-      const emailBody = encodeURIComponent(`Новая заявка:\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nEmail: ${formData.email || 'Не указан'}\n\nТовары:\n${formData.selectedProducts.join(", ")}\n\nКомментарий:\n${formData.comment || 'Нет комментария'}`);
+      const telegramMessage = `🔔 Новая заявка с сайта ГК ПОВОЛЖЬЕ%0A%0A👤 Имя: ${encodeURIComponent(formData.name)}%0A📞 Телефон: ${encodeURIComponent(formData.phone)}%0A📧 Email: ${encodeURIComponent(formData.email || 'Не указан')}%0A%0A📦 Товары:%0A${encodeURIComponent(formData.selectedProducts.join(", "))}%0A%0A💬 Комментарий:%0A${encodeURIComponent(formData.comment || 'Нет комментария')}`;
       
-      const mailtoUrl = `mailto:td.povolzhje@yandex.ru?subject=${emailSubject}&body=${emailBody}`;
+      const telegramUrl = `https://t.me/+79991413600?text=${telegramMessage}`;
       
-      const whatsappMessage = `🔔 Новая заявка с сайта ГК ПОВОЛЖЬЕ%0A%0A👤 Имя: ${encodeURIComponent(formData.name)}%0A📞 Телефон: ${encodeURIComponent(formData.phone)}%0A📧 Email: ${encodeURIComponent(formData.email || 'Не указан')}%0A%0A📦 Товары:%0A${encodeURIComponent(formData.selectedProducts.join(", "))}%0A%0A💬 Комментарий:%0A${encodeURIComponent(formData.comment || 'Нет комментария')}`;
-      
-      const whatsappUrl = `https://wa.me/79991413600?text=${whatsappMessage}`;
-      
-      window.open(mailtoUrl, "_blank");
-      setTimeout(() => {
-        window.open(whatsappUrl, "_blank");
-      }, 500);
+      window.open(telegramUrl, "_blank");
       
       setSubmitStatus("success");
       setTimeout(() => {
@@ -99,8 +91,7 @@ const OrderForm = ({ isOpen, onClose }: OrderFormProps) => {
         <DialogHeader>
           <DialogTitle className="text-2xl">Оформить заказ</DialogTitle>
           <DialogDescription>
-            Заполните форму, и мы свяжемся с вами в ближайшее время<br/>
-            <strong>Email для заказов: td.povolzhje@yandex.ru</strong>
+            Заполните форму, и мы свяжемся с вами в ближайшее время
           </DialogDescription>
         </DialogHeader>
 
@@ -173,7 +164,7 @@ const OrderForm = ({ isOpen, onClose }: OrderFormProps) => {
           {submitStatus === "success" && (
             <div className="flex items-center gap-2 p-4 bg-green-50 text-green-800 rounded-lg">
               <Icon name="CheckCircle" size={20} />
-              <span>Открываем email и WhatsApp для отправки заявки...</span>
+              <span>Открываем Telegram для отправки заявки...</span>
             </div>
           )}
 
