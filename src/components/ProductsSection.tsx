@@ -75,9 +75,9 @@ const ProductsSection = () => {
       desc: "Армирование дорожных покрытий", 
       icon: "Network",
       images: [
-        "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/bucket/2b2eb90a-cc8b-4577-b1a6-5cdfd66b8dcd.jpg",
-        "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/files/6d6f694e-a555-47ed-877c-f6126289ccd0.jpg",
-        "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/files/10e328e4-9e61-49bb-bf17-9c61a5f91088.jpg"
+        "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/bucket/50c26909-51c0-4697-adbd-12d26f48d74e.jpg",
+        "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/bucket/e9ebd8b2-c465-4fe5-a829-40f3625a3432.jpg",
+        "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/bucket/90b26cc4-920b-4a9b-a5b2-c20caf9b2fda.jpg"
       ],
       details: "Геосетка — это плоская полимерная или стеклопластиковая сетка для армирования асфальтобетонных покрытий и оснований дорог. Повышает прочность и долговечность дорожного полотна, предотвращает образование трещин и деформаций. Стеклосетка выдерживает температуры от -70°C до +270°C, устойчива к щелочам и кислотам. Прочность на разрыв от 50 до 200 кН/м."
     },
