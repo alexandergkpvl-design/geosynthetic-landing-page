@@ -64,7 +64,7 @@ const ProductsSection = () => {
       desc: "Для укрепления грунтов и откосов", 
       icon: "Grid3x3",
       images: [
-        "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/files/574edbde-44f5-4d1a-a7f6-230dafe2aea7.jpg",
+        "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/bucket/57d06318-a9dc-4fe4-bb92-e3c117617131.jpg",
         "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/files/c0d50593-c8ea-4f7a-b8dc-d556e314943e.jpg",
         "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/files/1cdbf9fe-b771-465b-a8b5-0d73bc3f8079.jpg"
       ],
@@ -75,7 +75,7 @@ const ProductsSection = () => {
       desc: "Армирование дорожных покрытий", 
       icon: "Network",
       images: [
-        "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/files/5950c368-2a02-4ccb-a3ab-05179d1b6154.jpg",
+        "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/bucket/2b2eb90a-cc8b-4577-b1a6-5cdfd66b8dcd.jpg",
         "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/files/6d6f694e-a555-47ed-877c-f6126289ccd0.jpg",
         "https://cdn.poehali.dev/projects/bafd65ba-226c-4c1a-bb60-cb4c832d8f51/files/10e328e4-9e61-49bb-bf17-9c61a5f91088.jpg"
       ],
